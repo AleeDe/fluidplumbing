@@ -1,0 +1,40 @@
+# Netlify deployment config for a fully static Next.js export.
+#
+# `output: 'export'` in next.config.ts writes plain HTML/CSS/JS to /out, so no
+# Next.js runtime or adapter plugin is needed — Netlify serves the directory.
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# next.config.ts sets trailingSlash: true, so /about/ is canonical.
+# This makes Netlify match that instead of redirecting between the two forms.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/optimised/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/brand/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Static export emits 404.html; Netlify serves it automatically for unmatched
+# routes, so no catch-all redirect is needed (and adding one would break
+# the real static routes).

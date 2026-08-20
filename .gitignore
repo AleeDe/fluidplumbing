@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.scratch
+design-scratch
+
+
+# large source images - optimised derivatives are committed instead
+assets-source
