@@ -162,6 +162,11 @@ work this business carried out, and no alt text or caption implies otherwise.
 before/after slot detect this and render an "ask us for photos of work like
 yours" card instead.
 
+**When the client supplies real photographs**, follow
+[SWAP-IN-REAL-PHOTOS.md](SWAP-IN-REAL-PHOTOS.md). Populating the two arrays
+switches the gallery, the homepage comparison slot and the gallery preview
+over automatically, with no component changes.
+
 **Never put an illustrative image into those two arrays.** Presenting generated
 imagery as a trader's completed work is a misleading action under the DMCC Act
 2024. Full inventory and reasoning in [IMAGE_MANIFEST.md](IMAGE_MANIFEST.md).
