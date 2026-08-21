@@ -3,7 +3,9 @@
 Marketing website for Fluid Plumbing Solutions, Kingston upon Hull.
 Static site, no server, no database, no CMS.
 
-**Read [DECISIONS.md](DECISIONS.md) before launching.** It lists every
+**Read [DECISIONS.md](DECISIONS.md) before launching**, and
+[GETTING-FOUND-ON-GOOGLE.md](GETTING-FOUND-ON-GOOGLE.md) for what has to
+happen outside the website for the business to appear in local search. It lists every
 placeholder that still needs a real answer from the client, including several
 that are legal or credibility blockers.
 

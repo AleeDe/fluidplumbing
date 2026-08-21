@@ -45,11 +45,22 @@ verified by the intake form or removed:
 
 1. **Real job photographs.** Deferred until after the sale by agreement.
    See [SWAP-IN-REAL-PHOTOS.md](SWAP-IN-REAL-PHOTOS.md).
-2. **A Google Business Profile.** This is the single highest-impact SEO
-   action left. It is free, and it is what actually surfaces a plumber in
-   the local map pack. A website alone does not. Once it exists, set
-   `googleReviewUrl` in `src/data/site.ts` and add it to `sameAs`, and a
-   "Reviews on Google" button appears automatically.
+2. **A Google Business Profile.** The client has no social media, no Google
+   listing and no prior website, so this site is his entire online presence.
+   That makes the profile the single highest-impact action left: it is free,
+   and it is what actually surfaces a plumber in the local map pack, which a
+   website alone cannot do.
+
+   Full setup steps, including the exact details that must match the site,
+   are in [GETTING-FOUND-ON-GOOGLE.md](GETTING-FOUND-ON-GOOGLE.md).
+
+   Once the profile exists, set `googleReviewUrl` in `src/data/site.ts` and
+   add the URL to `sameAs`. A "Reviews on Google" button then appears on the
+   homepage automatically and the profile is emitted in structured data.
+
+   The site handles the absence correctly in the meantime: `sameAs` is
+   omitted from schema rather than emitted empty, and the Google button is
+   hidden until a URL exists.
 
 ---
 
