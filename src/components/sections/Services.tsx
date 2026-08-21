@@ -7,6 +7,7 @@ import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { RevealGroup, RevealItem, Reveal } from '@/components/ui/Reveal';
 import { OptimisedImage } from '@/components/ui/OptimisedImage';
+import SpotlightCard from '@/components/reactbits/SpotlightCard';
 
 export function Services() {
   return (
@@ -30,9 +31,13 @@ export function Services() {
             const Icon = serviceIcons[s.icon];
             return (
               <RevealItem key={s.slug} as="article">
+                <SpotlightCard
+                  className="fps-card-hover group h-full overflow-hidden rounded-fps border border-fps-ink-900/10 bg-white p-0"
+                  spotlightColor="rgba(45, 212, 191, 0.18)"
+                >
                 <Link
                   href={`/services/${s.slug}/`}
-                  className="fps-card-hover group flex h-full flex-col overflow-hidden rounded-fps border border-fps-ink-900/10 bg-white"
+                  className="flex h-full flex-col"
                 >
                   <div className="relative aspect-[16/7] overflow-hidden bg-fps-navy-900">
                     <OptimisedImage
@@ -81,6 +86,7 @@ export function Services() {
                   </span>
                   </div>
                 </Link>
+                </SpotlightCard>
               </RevealItem>
             );
           })}

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { WaterBackground } from '@/components/ui/WaterBackground';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import { Grain } from '@/components/ui/Grain';
+import { MagneticCta } from '@/components/ui/MagneticCta';
 
 /**
  * SERVER COMPONENT - deliberately.
@@ -48,14 +49,18 @@ export function Hero() {
             </p>
 
             <div className="fps-rise mt-9 flex flex-wrap gap-3" style={{ animationDelay: '0.24s' }}>
-              <Button href={site.whatsapp.href(site.whatsapp.defaultMessage)} variant="primary" size="lg">
-                <WhatsAppIcon className="size-[18px]" />
-                Message on WhatsApp
-              </Button>
-              <Button href={site.phone.href} variant="ghost" size="lg">
-                <Phone aria-hidden="true" className="size-[18px]" />
-                Call 24/7
-              </Button>
+              <MagneticCta>
+                <Button href={site.whatsapp.href(site.whatsapp.defaultMessage)} variant="primary" size="lg">
+                  <WhatsAppIcon className="size-[18px]" />
+                  Message on WhatsApp
+                </Button>
+              </MagneticCta>
+              <MagneticCta>
+                <Button href={site.phone.href} variant="ghost" size="lg">
+                  <Phone aria-hidden="true" className="size-[18px]" />
+                  Call 24/7
+                </Button>
+              </MagneticCta>
             </div>
 
             <ul className="fps-rise mt-9 flex flex-wrap gap-x-6 gap-y-3" style={{ animationDelay: '0.32s' }}>

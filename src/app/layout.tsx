@@ -8,6 +8,7 @@ import { Footer } from '@/components/layout/Footer';
 import { MobileActionBar } from '@/components/layout/MobileActionBar';
 import { SkipLink } from '@/components/layout/SkipLink';
 import { SmoothScroll } from '@/components/layout/SmoothScroll';
+import { ClickSparkLayer } from '@/components/ui/ClickSparkLayer';
 
 const sora = Sora({
   subsets: ['latin'],
@@ -89,6 +90,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <MobileActionBar />
+        {/* Aqua spark on click. Viewport-sized canvas, silent under
+            prefers-reduced-motion, never intercepts pointer events. */}
+        <ClickSparkLayer />
       </body>
     </html>
   );
