@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, CircleCheck, TriangleAlert } from 'lucide-react';
+import { Send, CircleCheck, TriangleAlert, Phone } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import { site } from '@/data/site';
 import { services } from '@/data/services';
 import { cn } from '@/lib/utils';
@@ -33,30 +34,120 @@ export function ContactForm({ className }: { className?: string }) {
       return;
     }
 
+    // Capture the form element NOW. React nulls out `e.currentTarget` once
+    // the handler yields at the first `await`, so reading it later throws
+    // and the catch block would report a failure for a request that
+    // actually succeeded.
+    const form = e.currentTarget;
+
     setStatus('sending');
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     formData.append('access_key', site.web3formsKey);
     formData.append('subject', 'New enquiry from fluidplumbingsolutions.co.uk');
     formData.append('from_name', site.name);
 
+    let succeeded = false;
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData,
       });
-      const data = await res.json();
-      if (data.success) {
+      const data = await res.json().catch(() => null);
+      succeeded = res.ok && data?.success === true;
+
+      if (succeeded) {
         setStatus('sent');
-        setMessage('Thanks. We have got your message and will come back to you shortly.');
-        e.currentTarget.reset();
+        setMessage(
+          'Thanks, your enquiry has been sent. We will come back to you shortly, usually within a couple of hours.',
+        );
       } else {
         setStatus('error');
-        setMessage('Something went wrong. Please call or message us on WhatsApp.');
+        setMessage(
+          data?.message
+            ? `Could not send: ${data.message}`
+            : 'Could not send. Please call or message us on WhatsApp instead.',
+        );
       }
     } catch {
       setStatus('error');
-      setMessage('Could not send. Please call or message us on WhatsApp.');
+      setMessage('Could not send. Please call or message us on WhatsApp instead.');
     }
+
+    // Reset only after a confirmed success, and outside the try so a reset
+    // failure can never be reported as a submission failure.
+    if (succeeded) {
+      try {
+        form.reset();
+      } catch {
+        /* non-fatal: the message was already sent */
+      }
+    }
+  }
+
+  // A confirmed send replaces the form with an explicit success panel.
+  // Leaving the filled-in form on screen under a one-line message makes
+  // people wonder whether it actually sent, and invites duplicate submissions.
+  if (status === 'sent') {
+    return (
+      <div
+        role="status"
+        aria-live="polite"
+        className={cn(
+          'rounded-fps border border-fps-aqua-400/30 bg-fps-aqua-400/[0.06] p-8 text-center md:p-10',
+          className,
+        )}
+      >
+        <span
+          aria-hidden="true"
+          className="mx-auto mb-5 flex size-14 items-center justify-center rounded-full bg-fps-aqua-400/15"
+        >
+          <CircleCheck className="size-7 text-fps-aqua-400" strokeWidth={2} />
+        </span>
+
+        <h3 className="font-sora text-xl font-semibold text-white">
+          Enquiry sent
+        </h3>
+
+        <p className="mx-auto mt-3 max-w-sm text-white/70">
+          Thanks. We have got your details and will come back to you shortly,
+          usually within a couple of hours during working hours.
+        </p>
+
+        <p className="mx-auto mt-6 max-w-sm text-sm text-white/50">
+          If it is urgent, WhatsApp or a call will always reach us faster.
+        </p>
+
+        <div className="mt-5 flex flex-wrap justify-center gap-3">
+          <a
+            href={site.whatsapp.href(site.whatsapp.defaultMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-fps-aqua-400 px-6 font-medium text-fps-navy-950 transition-colors duration-250 hover:bg-fps-aqua-300"
+          >
+            <WhatsAppIcon className="size-[18px]" />
+            Message on WhatsApp
+          </a>
+          <a
+            href={site.phone.href}
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/20 px-6 font-medium text-white transition-colors duration-250 hover:border-fps-aqua-400 hover:text-fps-aqua-400"
+          >
+            <Phone aria-hidden="true" className="size-[18px]" />
+            {site.phone.display}
+          </a>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => {
+            setStatus('idle');
+            setMessage('');
+          }}
+          className="mt-7 inline-flex min-h-11 items-center text-sm text-white/45 underline-offset-4 transition-colors hover:text-white hover:underline"
+        >
+          Send another enquiry
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -193,19 +284,18 @@ export function ContactForm({ className }: { className?: string }) {
         </p>
       )}
 
+      {/* Errors only. Success is handled by the panel above, which replaces
+          the whole form. */}
       <p
         role="status"
         aria-live="polite"
         className={cn(
-          'mt-4 flex items-start gap-2 text-sm',
-          status === 'sent' && 'text-fps-aqua-400',
-          status === 'error' && 'text-fps-amber-500',
-          (status === 'idle' || status === 'sending') && 'sr-only',
+          'mt-4 flex items-start gap-2 rounded-xl px-3.5 py-3 text-sm',
+          status === 'error'
+            ? 'border border-fps-amber-500/25 bg-fps-amber-500/8 text-fps-amber-500'
+            : 'sr-only',
         )}
       >
-        {status === 'sent' && (
-          <CircleCheck aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
-        )}
         {status === 'error' && (
           <TriangleAlert aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
         )}
