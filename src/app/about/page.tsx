@@ -35,7 +35,7 @@ export default function AboutPage() {
           { name: 'Home', href: '/' },
           { name: 'About', href: '/about/' },
         ]}
-        pattern={<AreaHeaderPattern slug="about" image="about-placeholder" />}
+        pattern={<AreaHeaderPattern slug="about" image="hero-about" />}
         eyebrow="About"
         title="A local plumber you can actually get hold of."
         intro={`${site.name} is run by ${site.owner} from Kingston upon Hull, covering the city and the East Riding of Yorkshire.`}

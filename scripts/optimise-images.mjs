@@ -56,6 +56,10 @@ const PLAN = {
   'hero-leak':           { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
   'hero-maintenance':    { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
   'hero-contact':        { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+  'hero-services':       { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+  'hero-areas':          { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+  'hero-gallery':        { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+  'hero-about':          { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
 
   // Before/after comparison pairs. Both halves of a pair MUST use identical
   // widths and quality, or the slider reveals a visible quality seam as the

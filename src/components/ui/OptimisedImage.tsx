@@ -31,6 +31,10 @@ const WIDTHS: Record<OptimisedImageName, number[]> = {
   'hero-leak': [640, 1024, 1440, 1920],
   'hero-maintenance': [640, 1024, 1440, 1920],
   'hero-contact': [640, 1024, 1440, 1920],
+  'hero-services': [640, 1024, 1440, 1920],
+  'hero-areas': [640, 1024, 1440, 1920],
+  'hero-gallery': [640, 1024, 1440, 1920],
+  'hero-about': [640, 1024, 1440, 1920],
   // Comparison pairs — both halves must match exactly.
   'leak-before': [640, 1024, 1400],
   'leak-after': [640, 1024, 1400],

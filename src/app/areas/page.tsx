@@ -69,7 +69,7 @@ export default function AreasPage() {
           { name: 'Home', href: '/' },
           { name: 'Areas', href: '/areas/' },
         ]}
-        pattern={<AreaHeaderPattern slug="areas" image="stopcock" />}
+        pattern={<AreaHeaderPattern slug="areas" image="hero-areas" />}
         eyebrow="Coverage"
         title="Where we work."
         intro={`We cover ${areas.length} towns and districts across Hull and the East Riding of Yorkshire. Pick yours to see what we do locally, or message us if you are just outside.`}

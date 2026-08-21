@@ -35,7 +35,7 @@ export default function ServicesPage() {
           { name: 'Home', href: '/' },
           { name: 'Services', href: '/services/' },
         ]}
-        pattern={<AreaHeaderPattern slug="services" image="service-bathroom" />}
+        pattern={<AreaHeaderPattern slug="services" image="hero-services" />}
         eyebrow="Services"
         title="What we do, and how we do it."
         intro="Four services, covered properly across Hull and the East Riding. Whichever you need, the price is agreed before work starts and the workmanship is guaranteed."

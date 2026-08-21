@@ -45,7 +45,7 @@ export default function GalleryPage() {
           { name: 'Home', href: '/' },
           { name: 'Standard of work', href: '/gallery/' },
         ]}
-        pattern={<AreaHeaderPattern slug="gallery" image="service-leak" />}
+        pattern={<AreaHeaderPattern slug="gallery" image="hero-gallery" />}
         eyebrow={SHOWCASE_EYEBROW}
         title={hasRealWork ? 'Jobs we have finished.' : SHOWCASE_HEADING}
         intro={

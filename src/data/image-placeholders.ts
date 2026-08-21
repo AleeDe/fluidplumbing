@@ -54,6 +54,18 @@ export const optimisedImages = {
     height: 572,
     placeholderColor: '#080808',
   },
+  'hero-about': {
+    base: '/images/optimised/hero-about',
+    width: 1920,
+    height: 1072,
+    placeholderColor: '#080808',
+  },
+  'hero-areas': {
+    base: '/images/optimised/hero-areas',
+    width: 1920,
+    height: 1072,
+    placeholderColor: '#080808',
+  },
   'hero-bathroom': {
     base: '/images/optimised/hero-bathroom',
     width: 1920,
@@ -72,6 +84,12 @@ export const optimisedImages = {
     height: 1072,
     placeholderColor: '#080818',
   },
+  'hero-gallery': {
+    base: '/images/optimised/hero-gallery',
+    width: 1920,
+    height: 1072,
+    placeholderColor: '#080818',
+  },
   'hero-leak': {
     base: '/images/optimised/hero-leak',
     width: 1920,
@@ -83,6 +101,12 @@ export const optimisedImages = {
     width: 1920,
     height: 1072,
     placeholderColor: '#081818',
+  },
+  'hero-services': {
+    base: '/images/optimised/hero-services',
+    width: 1920,
+    height: 1072,
+    placeholderColor: '#080818',
   },
   'leak-after': {
     base: '/images/optimised/leak-after',
