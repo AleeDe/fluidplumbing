@@ -30,18 +30,26 @@ weaker without numbers.
 
 ## Current shipping status
 
-Content-wise the site is **safe to deploy today**. Every claim on it is either
+Content-wise the site is **safe to deploy today**. Every claim is either
 verified by the intake form or removed:
 
-- 24/7 emergency callouts, **confirmed by client**
+- 24/7 emergency callouts, confirmed by the client
 - No certification claims of any kind, audited, zero hits
-- No invented statistics, trust bar is qualitative
-- No fabricated testimonials, section replaced with before/after slot
-- No AI or stock photography presented as the client's work, none exists on the site
+- No invented statistics, the trust bar is qualitative
+- No fabricated testimonials, the social proof section is honest about
+  being a new business
+- No AI or stock photography presented as the client's own work
+- Canonical URL points at the live domain, not an unregistered one
 
-The phone number is now live, so **every call and WhatsApp CTA works**. The
-remaining gate is **real job photographs**, which would let the gallery drop
-its "illustrative" framing and speak as genuine completed work.
+**Two things remain, and neither can be solved in code:**
+
+1. **Real job photographs.** Deferred until after the sale by agreement.
+   See [SWAP-IN-REAL-PHOTOS.md](SWAP-IN-REAL-PHOTOS.md).
+2. **A Google Business Profile.** This is the single highest-impact SEO
+   action left. It is free, and it is what actually surfaces a plumber in
+   the local map pack. A website alone does not. Once it exists, set
+   `googleReviewUrl` in `src/data/site.ts` and add it to `sameAs`, and a
+   "Reviews on Google" button appears automatically.
 
 ---
 

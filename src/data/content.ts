@@ -59,29 +59,7 @@ export type Testimonial = {
   job: string;
 };
 
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      'Pipe went under the kitchen floor on a Sunday morning. Sent a message and had a reply in minutes with what to turn off. Sorted the same day and left the place clean.',
-    name: 'Sarah M.',
-    area: 'Cottingham',
-    job: 'Emergency callout',
-  },
-  {
-    quote:
-      'Quoted a full bathroom in writing and the final bill was the same number. That alone puts them ahead of the last two trades we used. Tidy work and the tiling is spot on.',
-    name: 'David R.',
-    area: 'Willerby',
-    job: 'Bathroom fitting',
-  },
-  {
-    quote:
-      'Had a damp patch on the ceiling for months and two people had guessed at it. Found the actual leak in under an hour without pulling the ceiling down.',
-    name: 'Joanne T.',
-    area: 'Hessle',
-    job: 'Leak detection',
-  },
-];
+export const testimonials: Testimonial[] = [];
 
 /* ------------------------------------------------------------- Process */
 

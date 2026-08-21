@@ -7,6 +7,7 @@ import { WhyUs } from '@/components/sections/WhyUs';
 import { Process } from '@/components/sections/Process';
 import { GalleryPreview } from '@/components/sections/GalleryPreview';
 import { BeforeAfterSection } from '@/components/sections/BeforeAfterSection';
+import { ReviewsCta } from '@/components/sections/ReviewsCta';
 import { AreasSection } from '@/components/sections/AreasSection';
 import { Faq } from '@/components/sections/Faq';
 import { FinalCta } from '@/components/sections/FinalCta';
@@ -36,6 +37,7 @@ export default function HomePage() {
       <Process />
       <GalleryPreview />
       <BeforeAfterSection />
+      <ReviewsCta />
       <AreasSection />
       <Faq />
       <FinalCta />
