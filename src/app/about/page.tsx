@@ -5,6 +5,7 @@ import { reasons } from '@/data/content';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { PageHero } from '@/components/ui/PageHero';
+import { AreaHeaderPattern } from '@/components/ui/AreaHeaderPattern';
 import { Reveal } from '@/components/ui/Reveal';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { OptimisedImage } from '@/components/ui/OptimisedImage';
@@ -34,6 +35,7 @@ export default function AboutPage() {
           { name: 'Home', href: '/' },
           { name: 'About', href: '/about/' },
         ]}
+        pattern={<AreaHeaderPattern slug="about" image="about-placeholder" />}
         eyebrow="About"
         title="A local plumber you can actually get hold of."
         intro={`${site.name} is run by ${site.owner} from Kingston upon Hull, covering the city and the East Riding of Yorkshire.`}

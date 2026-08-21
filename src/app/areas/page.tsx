@@ -5,6 +5,7 @@ import { areas } from '@/data/areas';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { PageHero } from '@/components/ui/PageHero';
+import { AreaHeaderPattern } from '@/components/ui/AreaHeaderPattern';
 import { RevealGroup, RevealItem } from '@/components/ui/Reveal';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -68,6 +69,7 @@ export default function AreasPage() {
           { name: 'Home', href: '/' },
           { name: 'Areas', href: '/areas/' },
         ]}
+        pattern={<AreaHeaderPattern slug="areas" image="stopcock" />}
         eyebrow="Coverage"
         title="Where we work."
         intro={`We cover ${areas.length} towns and districts across Hull and the East Riding of Yorkshire. Pick yours to see what we do locally, or message us if you are just outside.`}

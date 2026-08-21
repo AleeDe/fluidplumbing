@@ -4,6 +4,7 @@ import { site } from '@/data/site';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { PageHero } from '@/components/ui/PageHero';
+import { AreaHeaderPattern } from '@/components/ui/AreaHeaderPattern';
 import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
 import { ContactForm } from '@/components/ui/ContactForm';
@@ -33,6 +34,7 @@ export default function ContactPage() {
           { name: 'Home', href: '/' },
           { name: 'Contact', href: '/contact/' },
         ]}
+        pattern={<AreaHeaderPattern slug="contact" image="emergency-bg" />}
         eyebrow="Contact"
         title="Tell us what has gone wrong."
         intro="WhatsApp is the quickest way to reach us. Send a photo of the problem and you will usually get an answer within minutes, along with a rough idea of cost."

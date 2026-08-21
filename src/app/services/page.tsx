@@ -6,6 +6,7 @@ import { services } from '@/data/services';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { PageHero } from '@/components/ui/PageHero';
+import { AreaHeaderPattern } from '@/components/ui/AreaHeaderPattern';
 import { Reveal, RevealGroup, RevealItem } from '@/components/ui/Reveal';
 import { OptimisedImage } from '@/components/ui/OptimisedImage';
 import { FinalCta } from '@/components/sections/FinalCta';
@@ -34,6 +35,7 @@ export default function ServicesPage() {
           { name: 'Home', href: '/' },
           { name: 'Services', href: '/services/' },
         ]}
+        pattern={<AreaHeaderPattern slug="services" image="service-bathroom" />}
         eyebrow="Services"
         title="What we do, and how we do it."
         intro="Four services, covered properly across Hull and the East Riding. Whichever you need, the price is agreed before work starts and the workmanship is guaranteed."

@@ -5,6 +5,7 @@ import { showcase, SHOWCASE_HEADING, SHOWCASE_EYEBROW } from '@/data/showcase';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { PageHero } from '@/components/ui/PageHero';
+import { AreaHeaderPattern } from '@/components/ui/AreaHeaderPattern';
 import { Reveal } from '@/components/ui/Reveal';
 import { GalleryGrid } from '@/components/ui/GalleryGrid';
 import { ShowcaseGrid } from '@/components/ui/ShowcaseGrid';
@@ -44,6 +45,7 @@ export default function GalleryPage() {
           { name: 'Home', href: '/' },
           { name: 'Standard of work', href: '/gallery/' },
         ]}
+        pattern={<AreaHeaderPattern slug="gallery" image="service-leak" />}
         eyebrow={SHOWCASE_EYEBROW}
         title={hasRealWork ? 'Jobs we have finished.' : SHOWCASE_HEADING}
         intro={

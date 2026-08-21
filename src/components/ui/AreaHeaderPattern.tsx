@@ -43,15 +43,27 @@ const BACKGROUNDS: OptimisedImageName[] = [
   'pressure-gauge',
 ];
 
-/** Alt is empty: these are decorative, and the page states its own location. */
-export function AreaHeaderPattern({ slug }: { slug: string }) {
+/**
+ * Alt is empty: these are decorative and the page states its own subject.
+ *
+ * `slug` seeds the contour field. `image` optionally overrides the rotated
+ * background, so non-area pages can pick one that matches their content.
+ */
+export function AreaHeaderPattern({
+  slug,
+  image,
+}: {
+  slug: string;
+  image?: OptimisedImageName;
+}) {
   const seed = seedFrom(slug);
 
   // Assigned by position in the areas list rather than by hash, so the eight
   // backgrounds spread evenly instead of clustering. Still deterministic:
   // a given town always gets the same image.
   const areaIndex = areas.findIndex((a) => a.slug === slug);
-  const bg = BACKGROUNDS[(areaIndex < 0 ? seed : areaIndex) % BACKGROUNDS.length];
+  const bg =
+    image ?? BACKGROUNDS[(areaIndex < 0 ? seed : areaIndex) % BACKGROUNDS.length];
 
   // Six contour lines, phase and amplitude varied by the seed.
   const lines = Array.from({ length: 6 }, (_, i) => {

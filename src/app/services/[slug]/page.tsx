@@ -8,6 +8,7 @@ import { beforeAfter } from '@/data/gallery';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { PageHero } from '@/components/ui/PageHero';
+import { AreaHeaderPattern } from '@/components/ui/AreaHeaderPattern';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
@@ -69,6 +70,8 @@ export default async function ServicePage({
           { name: 'Services', href: '/services/' },
           { name: service.title, href: `/services/${service.slug}/` },
         ]}
+        pattern={<AreaHeaderPattern slug={service.slug} image={service.image} />}
+        eyebrow={service.title}
         title={service.h1}
         intro={service.intro}
       >
