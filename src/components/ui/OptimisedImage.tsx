@@ -25,6 +25,12 @@ const WIDTHS: Record<OptimisedImageName, number[]> = {
   'damp-stain': [480, 800, 1200],
   'pressure-gauge': [480, 800, 1200],
   'about-placeholder': [480, 800],
+  // Page hero backgrounds
+  'hero-emergency': [640, 1024, 1440, 1920],
+  'hero-bathroom': [640, 1024, 1440, 1920],
+  'hero-leak': [640, 1024, 1440, 1920],
+  'hero-maintenance': [640, 1024, 1440, 1920],
+  'hero-contact': [640, 1024, 1440, 1920],
   // Comparison pairs — both halves must match exactly.
   'leak-before': [640, 1024, 1400],
   'leak-after': [640, 1024, 1400],

@@ -70,7 +70,7 @@ export default async function ServicePage({
           { name: 'Services', href: '/services/' },
           { name: service.title, href: `/services/${service.slug}/` },
         ]}
-        pattern={<AreaHeaderPattern slug={service.slug} image={service.image} />}
+        pattern={<AreaHeaderPattern slug={service.slug} image={service.heroImage} />}
         eyebrow={service.title}
         title={service.h1}
         intro={service.intro}

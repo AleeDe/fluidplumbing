@@ -48,6 +48,15 @@ const PLAN = {
   'pressure-gauge':      { widths: [480, 800, 1200], budgetKB: 80 },
   'about-placeholder':   { widths: [480, 800], budgetKB: 60 },
 
+  // Page hero backgrounds. 16:9, purpose-shot with the subject on the right
+  // and dark space on the left for the headline. Full-bleed, so they need
+  // the widest ladder.
+  'hero-emergency':      { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+  'hero-bathroom':       { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+  'hero-leak':           { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+  'hero-maintenance':    { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+  'hero-contact':        { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+
   // Before/after comparison pairs. Both halves of a pair MUST use identical
   // widths and quality, or the slider reveals a visible quality seam as the
   // handle moves.

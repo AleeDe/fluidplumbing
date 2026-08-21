@@ -2,6 +2,9 @@ export type Service = {
   slug: string;
   /** Key into optimisedImages. Illustrative photography, NOT this business's work. */
   image: 'service-emergency' | 'service-bathroom' | 'service-leak' | 'service-maintenance';
+  /** Full-bleed 16:9 background behind the page H1. Distinct from `image`,
+   *  which is the 4:3 card crop used in grids. */
+  heroImage: 'hero-emergency' | 'hero-bathroom' | 'hero-leak' | 'hero-maintenance';
   /**
    * Describes only what the photograph SHOWS. No location, no possessive,
    * no implied authorship. See IMAGE_MANIFEST.md for the rule.
@@ -27,6 +30,7 @@ export const services: Service[] = [
   {
     slug: 'emergency-plumbing',
     image: 'service-emergency',
+    heroImage: 'hero-emergency',
     imageAlt: 'Water dripping from a loosened compression fitting on a copper pipe',
     title: 'Emergency plumbing',
     navLabel: 'Emergency plumbing',
@@ -67,6 +71,7 @@ export const services: Service[] = [
   {
     slug: 'bathroom-fitting',
     image: 'service-bathroom',
+    heroImage: 'hero-bathroom',
     imageAlt: 'A spirit level held against tiling beside a basin during a bathroom fit',
     title: 'Bathroom fitting',
     navLabel: 'Bathroom fitting',
@@ -107,6 +112,7 @@ export const services: Service[] = [
   {
     slug: 'leak-detection',
     image: 'service-leak',
+    heroImage: 'hero-leak',
     explainer: {
       name: 'damp-stain',
       alt: 'A brown-edged damp stain spreading across a painted ceiling',
@@ -153,6 +159,7 @@ export const services: Service[] = [
   {
     slug: 'maintenance-and-repairs',
     image: 'service-maintenance',
+    heroImage: 'hero-maintenance',
     explainer: {
       name: 'pressure-gauge',
       alt: 'A pressure gauge on copper pipework beneath a wall-mounted boiler',

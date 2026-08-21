@@ -54,6 +54,36 @@ export const optimisedImages = {
     height: 572,
     placeholderColor: '#080808',
   },
+  'hero-bathroom': {
+    base: '/images/optimised/hero-bathroom',
+    width: 1920,
+    height: 1072,
+    placeholderColor: '#081818',
+  },
+  'hero-contact': {
+    base: '/images/optimised/hero-contact',
+    width: 1920,
+    height: 1072,
+    placeholderColor: '#081818',
+  },
+  'hero-emergency': {
+    base: '/images/optimised/hero-emergency',
+    width: 1920,
+    height: 1072,
+    placeholderColor: '#080818',
+  },
+  'hero-leak': {
+    base: '/images/optimised/hero-leak',
+    width: 1920,
+    height: 1072,
+    placeholderColor: '#081818',
+  },
+  'hero-maintenance': {
+    base: '/images/optimised/hero-maintenance',
+    width: 1920,
+    height: 1072,
+    placeholderColor: '#081818',
+  },
   'leak-after': {
     base: '/images/optimised/leak-after',
     width: 1400,

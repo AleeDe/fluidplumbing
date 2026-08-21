@@ -34,7 +34,7 @@ export default function ContactPage() {
           { name: 'Home', href: '/' },
           { name: 'Contact', href: '/contact/' },
         ]}
-        pattern={<AreaHeaderPattern slug="contact" image="emergency-bg" />}
+        pattern={<AreaHeaderPattern slug="contact" image="hero-contact" />}
         eyebrow="Contact"
         title="Tell us what has gone wrong."
         intro="WhatsApp is the quickest way to reach us. Send a photo of the problem and you will usually get an answer within minutes, along with a rough idea of cost."
