@@ -50,7 +50,7 @@ export const showcase: ShowcaseItem[] = [
     id: 'sc-emergency',
     name: 'service-emergency',
     alt: 'Water dripping from a loosened compression fitting on a copper pipe',
-    caption: 'A failed compression joint — the most common cause of a sudden leak',
+    caption: 'A failed compression joint, the most common cause of a sudden leak',
     category: 'Emergency',
   },
   {
@@ -87,7 +87,7 @@ export const showcase: ShowcaseItem[] = [
     id: 'sc-meter',
     name: 'water-meter',
     alt: 'A water meter inside an outdoor ground chamber with the lid lifted',
-    caption: 'A meter chamber near the boundary — useful if there is no stopcock indoors',
+    caption: 'A meter chamber near the boundary, useful if there is no stopcock indoors',
     category: 'Know your home',
   },
   {

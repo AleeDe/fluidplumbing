@@ -127,7 +127,7 @@ export function imageObjectSchema(
   return {
     '@context': 'https://schema.org',
     '@type': 'ImageGallery',
-    name: `${site.name} — completed work`,
+    name: `${site.name} completed work`,
     associatedMedia: images.map((img) => ({
       '@type': 'ImageObject',
       contentUrl: abs(img.src),

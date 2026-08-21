@@ -265,7 +265,30 @@ Upload `/out`. Two requirements:
 1. Go to [web3forms.com](https://web3forms.com), enter
    `Fluidplumbingsolutions@gmail.com`, and collect the access key from email.
 2. Add it as `NEXT_PUBLIC_WEB3FORMS_KEY` in your host's environment variables.
-3. Redeploy and send a test submission.
+3. **Redeploy with the build cache cleared**, then send a test submission.
+
+### Why the setup warning can persist after you set the variable
+
+`NEXT_PUBLIC_*` variables are **inlined into the JavaScript at build time**,
+not read at runtime. An existing build has the old (empty) value compiled in,
+so adding the variable changes nothing until the site is rebuilt.
+
+On Netlify: **Deploys → Trigger deploy → Clear cache and deploy site**.
+Plain "Deploy site" may reuse the cached build.
+
+Also confirm, under Site configuration → Environment variables:
+
+- the variable's **Scopes** include **Builds** (not just Functions/Runtime)
+- it is set for the **deploy context** you are testing (Production vs preview)
+
+To verify locally that a key is being picked up:
+
+```bash
+NEXT_PUBLIC_WEB3FORMS_KEY="your-key" npm run build
+grep -roh 'web3formsKey:"[^"]*"' out/_next/static/chunks/*.js
+```
+
+That should print your key, not an empty string.
 
 The key is public by design — it only permits submissions to the address it was
 issued for. A honeypot field is already wired in for spam.

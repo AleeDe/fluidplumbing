@@ -110,7 +110,7 @@ export default function AboutPage() {
                         />
                         <span>
                           <span className="font-medium text-fps-ink-900">{r.title}</span>
-                          {' — '}
+                          {': '}
                           {r.body}
                         </span>
                       </li>

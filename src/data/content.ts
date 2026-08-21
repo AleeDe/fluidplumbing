@@ -165,7 +165,7 @@ export const TRUST_BAR_MODE: 'qualitative' | 'numeric' = 'qualitative';
 
 /** Shown when TRUST_BAR_MODE === 'qualitative'. True from day one. */
 export const trustClaims = [
-  { title: '24/7 emergency callouts', body: 'Confirmed — we answer out of hours' },
+  { title: '24/7 emergency callouts', body: 'Confirmed, we answer out of hours' },
   { title: 'Free quotes', body: 'Fixed price agreed before we start' },
   { title: 'Hull & East Riding', body: 'Local, and out across the region daily' },
   { title: 'WhatsApp first', body: 'Send a photo, get a straight answer' },

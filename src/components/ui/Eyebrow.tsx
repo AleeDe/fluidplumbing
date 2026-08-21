@@ -20,7 +20,7 @@ export function Eyebrow({
         className,
       )}
     >
-      {number ? `— ${number} / ` : '— '}
+      {number ? `${number} / ` : ''}
       {children}
     </p>
   );

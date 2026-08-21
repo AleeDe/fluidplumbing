@@ -60,7 +60,7 @@ export const site = {
    * `summary` (Mon-Sat trading hours) is still UNCONFIRMED — see DECISIONS.md.
    */
   hours: {
-    summary: 'Monday to Saturday, 8am – 6pm',
+    summary: 'Monday to Saturday, 8am to 6pm',
     emergency: '24/7 for emergency callouts',
     spec: [
       { days: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '18:00' },

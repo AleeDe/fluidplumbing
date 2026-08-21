@@ -33,7 +33,7 @@ export function ShowcaseGrid() {
       width: img.width,
       height: img.height,
       title: i.caption,
-      description: 'Illustrative example — not a photograph of a past job',
+      description: 'Illustrative example, not a photograph of a past job',
     };
   });
 

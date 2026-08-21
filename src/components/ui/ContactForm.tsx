@@ -181,8 +181,14 @@ export function ContactForm({ className }: { className?: string }) {
         <p className="mt-4 flex items-start gap-2 rounded-xl border border-fps-amber-500/25 bg-fps-amber-500/8 px-3.5 py-3 text-sm text-fps-amber-500">
           <TriangleAlert aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
           <span>
-            Setup step: add <code className="font-mono">NEXT_PUBLIC_WEB3FORMS_KEY</code> to
-            your environment to activate this form. See README.
+            Setup step: this form needs{' '}
+            <code className="font-mono">NEXT_PUBLIC_WEB3FORMS_KEY</code>.
+            {' '}
+            <strong className="font-semibold">
+              If you have already set it, redeploy with the cache cleared
+            </strong>{' '}
+            . The value is baked in at build time, so an existing build will not
+            pick it up. See README.
           </span>
         </p>
       )}

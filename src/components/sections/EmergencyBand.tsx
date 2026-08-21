@@ -21,7 +21,7 @@ const steps = [
   {
     n: '2',
     title: 'Turn it clockwise',
-    body: 'Keep turning until it stops. If it is seized, do not force it — call us and we will talk you through it.',
+    body: 'Keep turning until it stops. If it is seized, do not force it. Call us and we will talk you through it.',
   },
   {
     n: '3',

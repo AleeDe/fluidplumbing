@@ -60,7 +60,7 @@ export function WorkEmptyState({
           )}
         >
           Tell us what you are planning and we will send photos of recent jobs
-          that match — the same suite, the same kind of room, the same problem.
+          that match: the same suite, the same kind of room, the same problem.
           Straight to your phone, no obligation.
         </p>
 

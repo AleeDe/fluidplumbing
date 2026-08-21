@@ -22,7 +22,7 @@ export function GalleryGrid() {
     width: i.width,
     height: i.height,
     title: i.caption,
-    description: `${i.service} — ${i.area}`,
+    description: `${i.service}, ${i.area}`,
   }));
 
   return (
