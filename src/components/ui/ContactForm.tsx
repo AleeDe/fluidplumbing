@@ -110,7 +110,7 @@ export function ContactForm({ className }: { className?: string }) {
               required
               autoComplete="tel"
               className={field}
-              placeholder="07000 000000"
+              placeholder="e.g. 07700 900123"
             />
           </div>
           <div>

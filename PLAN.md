@@ -1,4 +1,4 @@
-# Fluid Plumbing Solutions — Build Plan
+# Fluid Plumbing Solutions, Build Plan
 
 ## Positioning
 The most credible, fastest-to-contact plumber in Hull. Not cheapest, not chummy.
@@ -16,13 +16,13 @@ Next 15 App Router · TypeScript · Tailwind v4 · `output: 'export'` · `images
 motion/react · lenis · gsap+ScrollTrigger (2 sequences only) · next/font (Sora + Inter) · lucide-react
 Web3Forms (static) · no CMS, no DB, no auth.
 
-## Borrowed components — hard cap 5
-1. react-compare-slider  (before/after — bathroom page + gallery)
+## Borrowed components, hard cap 5
+1. react-compare-slider  (before/after, bathroom page + gallery)
 2. yet-another-react-lightbox (gallery)
 3. shadcn Accordion (FAQ)
 4. shadcn DropdownMenu (nav services)
 5. Magic UI number-ticker (stats)
-Magic UI border-beam is the 6th — evaluate at build; drop if cap is hit or if it reads SaaS.
+Magic UI border-beam is the 6th, evaluate at build; drop if cap is hit or if it reads SaaS.
 Hand-built, never borrowed: hero water background, emergency band, gallery grid.
 
 ## File tree
@@ -53,10 +53,10 @@ public/images/work/
 ## Build order
 1. Scaffold, config, tokens in globals.css, fonts
 2. Brand SVGs (logo, mark, favicon, og)
-3. Data files — copy written first, so JSX stays content-free
+3. Data files, copy written first, so JSX stays content-free
 4. UI primitives + motion guard + Lenis
 5. Nav / Footer / MobileActionBar
-6. Homepage sections in order 1–14
+6. Homepage sections in order 1-14
 7. Inner pages: services (4) → areas (18) → about, gallery, contact, legal
 8. SEO: generateMetadata, JSON-LD, sitemap, robots
 9. `npm run build` → clean /out, zero TS errors

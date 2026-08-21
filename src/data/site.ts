@@ -4,10 +4,14 @@
  * See DECISIONS.md for every value that still needs confirming with the client.
  */
 
-/** PLACEHOLDER — replace with Zack's real number. E.164, no spaces. */
-const PHONE_E164 = '+447000000000';
-/** Human-readable form shown on screen. */
-const PHONE_DISPLAY = '07000 000000';
+/**
+ * Client's real mobile. E.164, no spaces.
+ * Changing this one constant updates every call link, every WhatsApp link
+ * and the LocalBusiness schema across the whole site.
+ */
+const PHONE_E164 = '+447581213828';
+/** Human-readable form shown on screen (UK national format). */
+const PHONE_DISPLAY = '07581 213828';
 
 export const site = {
   name: 'Fluid Plumbing Solutions',
@@ -31,8 +35,13 @@ export const site = {
       `https://wa.me/${PHONE_E164.replace('+', '')}${
         message ? `?text=${encodeURIComponent(message)}` : ''
       }`,
+    /**
+     * Pre-filled opening message. Kept short and specific so the enquiry is
+     * already useful before Zack replies. Deliberately does NOT include a
+     * dash character (see the site-wide punctuation rule).
+     */
     defaultMessage:
-      'Hi Zack, I found you on your website and would like a quote please.',
+      'Hi Fluid Plumbing, I found you on your website and I am looking for a plumber.',
   },
 
   email: 'Fluidplumbingsolutions@gmail.com',

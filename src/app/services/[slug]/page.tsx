@@ -74,7 +74,7 @@ export default async function ServicePage({
       >
         <div className="mt-9 flex flex-wrap gap-3">
           <Button
-            href={site.whatsapp.href(`Hi Zack, I need help with ${service.title.toLowerCase()}.`)}
+            href={site.whatsapp.href(`Hi Fluid Plumbing, I need help with ${service.title.toLowerCase()}.`)}
             variant="primary"
             size="lg"
           >
@@ -155,7 +155,7 @@ export default async function ServicePage({
                   </p>
                   <Button
                     href={site.whatsapp.href(
-                      `Hi Zack, I would like a quote for ${service.title.toLowerCase()}.`,
+                      `Hi Fluid Plumbing, I would like a quote for ${service.title.toLowerCase()}.`,
                     )}
                     variant="primary"
                     className="mt-6 w-full"

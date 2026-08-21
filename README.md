@@ -1,7 +1,7 @@
 # Fluid Plumbing Solutions
 
 Marketing website for Fluid Plumbing Solutions, Kingston upon Hull.
-Static site — no server, no database, no CMS.
+Static site, no server, no database, no CMS.
 
 **Read [DECISIONS.md](DECISIONS.md) before launching.** It lists every
 placeholder that still needs a real answer from the client, including several
@@ -19,7 +19,7 @@ npm run lint
 ```
 
 `npm run build` writes a fully static site to `/out`. There is no server
-runtime — the output is plain HTML, CSS, JS and images.
+runtime, the output is plain HTML, CSS, JS and images.
 
 ### Environment
 
@@ -39,7 +39,7 @@ nothing. The rest of the site is unaffected.
 **`src/data/site.ts`** is the single source of truth for the phone number,
 WhatsApp number, email, address, opening hours and canonical URL.
 
-Change the phone number **here and nowhere else** — it propagates to the nav,
+Change the phone number **here and nowhere else**, it propagates to the nav,
 hero, emergency band, every service and area page, the footer, the mobile
 action bar, and the `LocalBusiness` schema.
 
@@ -57,7 +57,7 @@ they are replaced.
 
 All images run through **`src/data/gallery.ts`**. Nothing is hardcoded in JSX.
 
-1. Optimise the photo first — resize to ~1600px on the long edge, save as JPEG
+1. Optimise the photo first, resize to ~1600px on the long edge, save as JPEG
    at quality 80 or WebP. `images.unoptimized` is set (required for static
    export), so **Next will not resize or compress anything for you**. An
    unoptimised 4MB phone photo will wreck the LCP.
@@ -74,7 +74,7 @@ All images run through **`src/data/gallery.ts`**. Nothing is hardcoded in JSX.
   caption: 'Full bathroom installation, Cottingham',
   service: 'Bathroom fitting',
   area: 'Cottingham',
-  width: 1600,     // TRUE pixel dimensions — these prevent layout shift
+  width: 1600,     // TRUE pixel dimensions, these prevent layout shift
   height: 1200,
   placeholder: false,
 }
@@ -83,7 +83,7 @@ All images run through **`src/data/gallery.ts`**. Nothing is hardcoded in JSX.
 `width` and `height` must be the file's **real** dimensions. They reserve the
 space that keeps CLS at zero. Getting them wrong reintroduces layout shift.
 
-Write real `alt` text describing the actual job and where it was — it is both
+Write real `alt` text describing the actual job and where it was, it is both
 an accessibility requirement and a local-SEO signal.
 
 ### Before/after pairs
@@ -107,7 +107,7 @@ and areas hub all appear automatically.
   county: 'East Riding of Yorkshire',
   postcodes: ['HU12'],
   geo: { latitude: 53.7419, longitude: -0.1889 },
-  metaTitle: 'Plumber in Preston',        // NO brand suffix — layout adds it
+  metaTitle: 'Plumber in Preston',        // NO brand suffix, layout adds it
   metaDescription: '...',                 // <=155 chars
   h1: 'Plumber in Preston',
   intro: ['First paragraph...', 'Second paragraph...'],
@@ -116,7 +116,7 @@ and areas hub all appear automatically.
 ```
 
 **Write the copy by hand.** The entire point of these pages is that they are
-not templated — each one references a genuine local landmark and a real
+not templated, each one references a genuine local landmark and a real
 characteristic of the housing stock. Google discounts near-duplicate location
 pages, and a homeowner spots filler instantly. If you cannot say something
 specific about a town, do not add it.
@@ -127,7 +127,7 @@ Removing an area is just deleting its entry.
 
 ## Adding or editing a service
 
-`src/data/services.ts`. Same pattern — the page, nav dropdown, footer links,
+`src/data/services.ts`. Same pattern, the page, nav dropdown, footer links,
 schema and sitemap all follow from the data.
 
 The before/after slider only renders on `bathroom-fitting`; that is controlled
@@ -177,7 +177,7 @@ never enter the static export) and writes AVIF + WebP derivatives at multiple
 widths to `public/images/optimised/`, plus a typed
 `src/data/image-placeholders.ts` with dimensions and dominant colours.
 
-**Budgets are enforced and the script exits non-zero if one is missed** — hero
+**Budgets are enforced and the script exits non-zero if one is missed**, hero
 120KB, cards and explainers 80KB, About 60KB. If an image overruns, quality
 steps down in 5s and the final value is reported rather than silently shipped.
 
@@ -194,13 +194,13 @@ fallback. `next/image` is **not** used for these: `images.unoptimized` is set
 for static export, so it would emit a single unprocessed `<img>` and ignore the
 derivatives entirely.
 
-Every image carries explicit `width`/`height` — CLS is 0 and must stay there.
+Every image carries explicit `width`/`height`, CLS is 0 and must stay there.
 
 ### Brand assets
 
 `public/brand/` holds the logo in full-colour, mono-light and mono-dark, plus
 the mark, favicon, apple-touch-icon and OG card. The mark is legibility-tested
-at 24/48/320px — **do not thicken the 6.5px stroke**, it fails at favicon size.
+at 24/48/320px, **do not thicken the 6.5px stroke**, it fails at favicon size.
 
 ---
 
@@ -213,8 +213,8 @@ does not exist yet. Both are one-line changes when it does.
 
 `src/data/content.ts` → `TRUST_BAR_MODE`
 
-- `'qualitative'` (current) — four claims true from day one, no numbers
-- `'numeric'` — the counting stat bar
+- `'qualitative'` (current), four claims true from day one, no numbers
+- `'numeric'`, the counting stat bar
 
 **Do not switch to `'numeric'` until every figure in `stats` is a real number
 Zack has confirmed.** They are currently invented. See DECISIONS.md item 3.
@@ -290,7 +290,7 @@ grep -roh 'web3formsKey:"[^"]*"' out/_next/static/chunks/*.js
 
 That should print your key, not an empty string.
 
-The key is public by design — it only permits submissions to the address it was
+The key is public by design, it only permits submissions to the address it was
 issued for. A honeypot field is already wired in for spam.
 
 Note the form is the *secondary* channel. WhatsApp is the primary CTA
@@ -306,7 +306,7 @@ DropdownMenu, Dialog) · react-compare-slider · yet-another-react-lightbox ·
 Web3Forms
 
 Design tokens are CSS custom properties in `src/app/globals.css` under
-`@theme`. Base element styles sit inside `@layer base` — **keep them there**,
+`@theme`. Base element styles sit inside `@layer base`, **keep them there**,
 or the fluid `h1`/`h2` clamps will override Tailwind's `text-*` utilities on
 any heading.
 
@@ -316,7 +316,7 @@ any heading.
   0.08s stagger, `whileInView` with `once: true`.
 - The hero animates with **CSS, not Motion**, because it contains the LCP
   element. Do not convert it back to a client component.
-- **`.fps-rise` animates transform only — never opacity.** An element at
+- **`.fps-rise` animates transform only, never opacity.** An element at
   `opacity: 0` is not an LCP candidate, so fading the hero in defers the LCP
   timestamp until the fade completes. Adding an opacity fade back cost 1.3s of
   LCP when measured. This applies to anything above the fold.
@@ -324,7 +324,7 @@ any heading.
   initial chunk. Keep them that way.
 - GSAP is used for exactly one sequence: the process line draw.
 - Everything is disabled under `prefers-reduced-motion`, including Lenis and
-  GSAP. Use Motion's `useReducedMotion()` — not a custom `useEffect` hook,
+  GSAP. Use Motion's `useReducedMotion()`, not a custom `useEffect` hook,
   which resolves too late and leaves content invisible on first paint.
 
 ---
@@ -333,15 +333,15 @@ any heading.
 
 Verified at 100 in Lighthouse, but a few constraints are easy to break:
 
-- **`#0EA5E9` (cyan-500) must never be text on a light background** — 2.53:1.
+- **`#0EA5E9` (cyan-500) must never be text on a light background**, 2.53:1.
   Use `text-fps-cyan-700` (`#0A6E9B`, 5.16:1).
-- **`#64748B` (ink-500) must never be body text on `slate-100`** — 4.34:1.
+- **`#64748B` (ink-500) must never be body text on `slate-100`**, 4.34:1.
   Use `text-fps-ink-600` (`#5A6779`, 5.25:1).
-- **Never put white text on the signature gradient** — as low as 1.86:1.
+- **Never put white text on the signature gradient**, as low as 1.86:1.
   Use `text-fps-navy-950`.
 - Aqua `#2DD4BF` on navy `#04121F` is 10.15:1 and safe anywhere.
 
-Any element carrying `aria-label` needs a role that permits it — a bare `<div>`
+Any element carrying `aria-label` needs a role that permits it, a bare `<div>`
 does not.
 
 ---

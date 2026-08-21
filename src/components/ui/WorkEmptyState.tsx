@@ -67,7 +67,7 @@ export function WorkEmptyState({
         <div className="mt-7 flex flex-wrap justify-center gap-3">
           <a
             href={site.whatsapp.href(
-              'Hi Zack, could you send me some photos of recent work?',
+              'Hi Fluid Plumbing, could you send me some photos of recent work?',
             )}
             target="_blank"
             rel="noopener noreferrer"

@@ -16,14 +16,14 @@
 
 | # | Question | Blocks |
 |---|---|---|
-| 1 | **What is your mobile number?** Is WhatsApp registered to it? | Every CTA on the site |
-| 2 | **Send 10-15 job photos** — before/after pairs most valuable | Gallery, sliders, hero |
+| ~~1~~ | ~~Mobile number~~ **DONE: +44 7581 213828**. Still verify WhatsApp is registered to it | Every CTA |
+| 2 | **Send 10-15 job photos**, before/after pairs most valuable | Gallery, sliders, hero |
 | 3 | **Who is your public liability insurer, and what cover?** | Insurance claims |
 | 4 | **Is "no call-out fee" true with no exceptions?** | Pricing claims |
 | 5 | **Confirm Mon-Sat trading hours** (currently assumed) | LocalBusiness schema |
 | 6 | Years trading / job count *(optional)* | Trust bar numeric mode |
 
-Question 6 is optional — the trust bar runs on qualitative claims and reads no
+Question 6 is optional, the trust bar runs on qualitative claims and reads no
 weaker without numbers.
 
 ---
@@ -33,33 +33,51 @@ weaker without numbers.
 Content-wise the site is **safe to deploy today**. Every claim on it is either
 verified by the intake form or removed:
 
-- 24/7 emergency callouts — **confirmed by client**
-- No certification claims of any kind — audited, zero hits
-- No invented statistics — trust bar is qualitative
-- No fabricated testimonials — section replaced with before/after slot
-- No AI or stock photography presented as the client's work — none exists on the site
+- 24/7 emergency callouts, **confirmed by client**
+- No certification claims of any kind, audited, zero hits
+- No invented statistics, trust bar is qualitative
+- No fabricated testimonials, section replaced with before/after slot
+- No AI or stock photography presented as the client's work, none exists on the site
 
-The launch gate is now **one thing**: the phone number. Photographs are second,
-and would change the site from good to genuinely persuasive.
-
----
-
-## 1. BLOCKER — Phone and WhatsApp number
-
-The entire site currently runs on the placeholder `+44 7000 000000`.
-
-- **Every WhatsApp button is non-functional.** WhatsApp is the primary CTA on
-  every page, so until this is replaced the site cannot convert.
-- Change it in **one place**: `src/data/site.ts` → `PHONE_E164` and `PHONE_DISPLAY`.
-- `PHONE_E164` must be E.164 with no spaces (`+447xxxxxxxxx`). The WhatsApp
-  link strips the `+` automatically.
-
-**Needed:** Zack's real mobile number, and confirmation it is the number
-WhatsApp is registered to.
+The phone number is now live, so **every call and WhatsApp CTA works**. The
+remaining gate is **real job photographs**, which would let the gallery drop
+its "illustrative" framing and speak as genuine completed work.
 
 ---
 
-## 2. BLOCKER — Gas Safe status
+## 1. RESOLVED. Phone and WhatsApp number
+
+**The real number is live: `+44 7581 213828`.**
+
+Set once in `src/data/site.ts` and propagated automatically:
+
+| Surface | Count in build |
+|---|---|
+| `tel:` links | 308 |
+| `wa.me` links | 279 |
+| Displayed as `07581 213828` | 282 |
+| `LocalBusiness` schema `telephone` | correct |
+
+WhatsApp links carry a pre-filled opening message. The generic one is:
+
+> Hi Fluid Plumbing, I found you on your website and I am looking for a plumber.
+
+Context-specific variants are used where they help Zack triage:
+
+- Area pages: *"I am in Beverley and need a plumber"*
+- Service pages: *"I need help with leak detection"*
+- Gallery: *"could you send me some photos of recent work?"*
+
+Messages address the business, not the owner by first name, so they still read
+correctly if someone else picks up.
+
+**Still to confirm:** that WhatsApp is registered to this number. If it is not,
+every `wa.me` link will open a "phone number not on WhatsApp" error, which is
+worse than no link. Test one link from a phone before launch.
+
+---
+
+## 2. BLOCKER, Gas Safe status
 
 **Decision taken:** the site does **not** claim, imply, or mention Gas Safe
 registration anywhere.
@@ -84,7 +102,7 @@ found no Hull competitor doing so. The copy would then change in
 
 ---
 
-## 3. Trust bar statistics — DEFUSED, needs real numbers to re-enable
+## 3. Trust bar statistics, DEFUSED, needs real numbers to re-enable
 
 **Status: safe to ship as-is.** The trust bar now runs in `qualitative` mode.
 
@@ -106,7 +124,7 @@ The counting stat bar still exists behind `TRUST_BAR_MODE = 'numeric'`, but
 | 5.0★ average review score | **Invented** |
 
 Publishing invented figures as fact is a CPR 2008 misleading-action risk. The
-review score is the most dangerous — it implies aggregate review data and needs
+review score is the most dangerous, it implies aggregate review data and needs
 a real Google Business Profile behind it.
 
 **Needed from Zack:** years trading, rough job count, honest average response
@@ -115,7 +133,7 @@ qualitative mode. It does not read as weaker.
 
 ---
 
-## 4. Testimonials — REMOVED from the site, needs real reviews
+## 4. Testimonials, REMOVED from the site, needs real reviews
 
 **Status: safe to ship as-is.** No testimonials are rendered anywhere.
 
@@ -123,7 +141,7 @@ The invented testimonials breached the fake-review provisions of the Digital
 Markets, Competition and Consumers Act 2024, which carries direct penalties and
 attaches liability to the business, not the agency.
 
-Rather than run a "reviews coming soon" placeholder — which reads as amateur —
+Rather than run a "reviews coming soon" placeholder, which reads as amateur -
 that homepage slot now carries **`BeforeAfterSection`**: the before/after
 comparison sliders. It does the same conversion job with verifiable evidence
 instead of unverifiable claims.
@@ -135,7 +153,7 @@ then render `<Testimonials />` in `src/app/page.tsx`.
 
 ---
 
-## 5. BLOCKER — Job photographs
+## 5. BLOCKER, Job photographs
 
 No client photos were supplied, so every image is a generated placeholder.
 
@@ -144,7 +162,7 @@ No client photos were supplied, so every image is a generated placeholder.
 - 1 hero image
 
 All are wired through `src/data/gallery.ts`. See the README for how to swap
-them in. Key point: **before/after pairs must be genuinely matched** — same
+them in. Key point: **before/after pairs must be genuinely matched**, same
 room, same angle, same lens. A mismatched pair is worse than no slider.
 
 The before/after slider is described in the brief as the highest-converting
@@ -163,7 +181,7 @@ Hull competitor does it.
 
 ---
 
-## 7. Opening hours — 24/7 CONFIRMED, trading hours still assumed
+## 7. Opening hours, 24/7 CONFIRMED, trading hours still assumed
 
 **24/7 emergency callouts are confirmed by the client's intake form.** The
 hedged wording used while it was unverified has been reverted:
@@ -201,7 +219,7 @@ If there is any exception, the copy must state it.
 
 **Confirm Zack will genuinely travel to all of them**, particularly for
 emergency work. An area page that generates a call he will not attend is worse
-than no page. Areas are trivial to remove — delete the entry from
+than no page. Areas are trivial to remove, delete the entry from
 `src/data/areas.ts`.
 
 ---
@@ -227,7 +245,7 @@ shows a visible setup warning and submits nothing. See README for setup.
 ## 12. Social profiles
 
 `site.sameAs` is an empty array, so no social profiles are emitted in schema.
-If Zack has a Facebook or Instagram page, add them — `sameAs` is a genuine
+If Zack has a Facebook or Instagram page, add them, `sameAs` is a genuine
 local-SEO ranking signal and every Hull competitor has a Facebook presence.
 
 ---
@@ -239,7 +257,7 @@ local-SEO ranking signal and every Hull competitor has a Facebook presence.
 non-negotiable, so it was pinned to 15.5.23.
 
 **Consequence:** `npm audit` reports 3 high-severity advisories in transitive
-`postcss` and `sharp`. Both are **build-time only** — there is no server
+`postcss` and `sharp`. Both are **build-time only**, there is no server
 runtime, and `sharp` is never invoked because `images.unoptimized` is set. Risk
 to the deployed site is nil. Upgrading to Next 16 clears them but contradicts
 the brief. Flagged for the client to decide.
@@ -256,7 +274,7 @@ Borrowed component count: **4 of a permitted 5**.
 
 ### Accessibility: the brief's contrast prediction was wrong
 The brief instructed to "specifically audit aqua-on-navy and darken the aqua if
-it fails". It does not fail — `#2DD4BF` on `#04121F` measures **10.15:1**,
+it fails". It does not fail, `#2DD4BF` on `#04121F` measures **10.15:1**,
 comfortably AAA. No darkening needed.
 
 Two failures the brief did not anticipate were found and fixed:
@@ -265,7 +283,7 @@ Two failures the brief did not anticipate were found and fixed:
 - `cyan-500 #0EA5E9` on `slate-100` → 2.53:1, **fails badly**.
   Added `--color-fps-cyan-700: #0A6E9B` (5.16:1) for links on light.
   Cyan-500 is now restricted to dark backgrounds and gradients only.
-- White on the signature gradient measured 1.86–2.77:1. Process step badges
+- White on the signature gradient measured 1.86-2.77:1. Process step badges
   were changed to navy text (6.82:1 minimum).
 
 ### Hero is a server component, and the LCP element is a text node
@@ -304,7 +322,7 @@ GSAP/ScrollTrigger was already dynamically imported.
 ### Fonts
 `font-display: swap` is set by `next/font` and verified in the built CSS.
 `adjustFontFallback` and an explicit fallback stack were added to reduce swap
-reflow. Measured LCP impact: none (2248ms -> 2276ms, i.e. noise) — recorded
+reflow. Measured LCP impact: none (2248ms -> 2276ms, i.e. noise), recorded
 here because it was tested, not because it helped.
 
 Known remaining item: `next/font` emits **9 woff2 subset files** (largest 85KB)
@@ -342,7 +360,7 @@ Both are correct measurements of different things.
 920ms -> 1368ms. That is the real cost of introducing photography, and it lands
 inside the 1.2-1.6s range predicted before the work started.
 
-The LCP element is still the hero **paragraph**, not the image — the text
+The LCP element is still the hero **paragraph**, not the image, the text
 paints before the photograph decodes.
 
 ## Lighthouse scores
@@ -352,7 +370,7 @@ paints before the photograph decodes.
 | Home | 85 | 100 | 100 | 100 | 2.7s | 0 | 450ms |
 | Service page | 91 | 100 | 100 | 100 | 2.6s | 0 | 280ms |
 | Area page | 84 | 100 | 100 | 100 | 2.9s | 0 | 420ms |
-| **Terms (control)** | **92** | — | — | — | 2.5s | 0 | 240ms |
+| **Terms (control)** | **92** |, |, |, | 2.5s | 0 | 240ms |
 
 **Read these against the control row.** `/terms/` has no images and almost no
 JS. It previously scored 95-97 with ~50ms TBT; it now scores 92 with 240ms on
@@ -375,14 +393,14 @@ Radix + Lenis hydration, unchanged from before this pass.
 | | Before | After |
 |---|---|---|
 | Source images | 40.2 MB | (moved to `assets-source/`, never deployed) |
-| Shipped images | — | **1.4 MB** |
+| Shipped images |, | **1.4 MB** |
 | Reduction | | **96.6%** |
 
 A separate 40MB bug was caught and fixed during this pass: the source images
 were sitting inside `public/` and were being copied into the static export
 despite nothing referencing them.
 
-CLS is **0** on every page — every image carries explicit width/height.
+CLS is **0** on every page, every image carries explicit width/height.
 
 ## Contrast over photography
 

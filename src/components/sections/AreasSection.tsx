@@ -41,7 +41,7 @@ export function AreasSection() {
           <p className="mt-10 text-white/60">
             Not sure if we cover you?{' '}
             <a
-              href={site.whatsapp.href('Hi Zack, do you cover my area?')}
+              href={site.whatsapp.href('Hi Fluid Plumbing, do you cover my area?')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-medium text-fps-aqua-400 underline-offset-4 hover:underline"

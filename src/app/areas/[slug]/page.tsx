@@ -75,7 +75,7 @@ export default async function AreaPage({
       >
         <div className="mt-9 flex flex-wrap gap-3">
           <Button
-            href={site.whatsapp.href(`Hi Zack, I am in ${area.name} and need a plumber.`)}
+            href={site.whatsapp.href(`Hi Fluid Plumbing, I am in ${area.name} and need a plumber.`)}
             variant="primary"
             size="lg"
           >
@@ -171,7 +171,7 @@ export default async function AreaPage({
                   </dl>
                   <Button
                     href={site.whatsapp.href(
-                      `Hi Zack, I am in ${area.name} and would like a quote.`,
+                      `Hi Fluid Plumbing, I am in ${area.name} and would like a quote.`,
                     )}
                     variant="primary"
                     className="mt-6 w-full"
