@@ -40,9 +40,6 @@ const WIDTHS: Record<OptimisedImageName, number[]> = {
   'leak-after': [640, 1024, 1400],
   'radiator-before': [640, 1024, 1400],
   'radiator-after': [640, 1024, 1400],
-  // Optimised but deliberately unused — not a matched pair.
-  'bathroom-before': [640, 1024, 1400],
-  'bathroom-after': [640, 1024, 1400],
 };
 
 export function OptimisedImage({

@@ -69,13 +69,6 @@ const PLAN = {
   'radiator-before':     { widths: [640, 1024, 1400], budgetKB: 90 },
   'radiator-after':      { widths: [640, 1024, 1400], budgetKB: 90 },
 
-  // NOT WIRED IN — bathroom-before/after are not a matched pair. The "after"
-  // is a different room (corridor WC vs square bathroom) AND is itself a
-  // two-up composite with a visible seam. Optimised here so the files stay
-  // consistent, but deliberately absent from beforeAfterPairs.
-  // See IMAGE_MANIFEST.md.
-  'bathroom-before':     { widths: [640, 1024, 1400], budgetKB: 90 },
-  'bathroom-after':      { widths: [640, 1024, 1400], budgetKB: 90 },
 };
 
 const kb = (bytes) => bytes / 1024;

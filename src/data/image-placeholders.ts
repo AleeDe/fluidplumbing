@@ -24,18 +24,6 @@ export const optimisedImages = {
     height: 993,
     placeholderColor: '#c8d8d8',
   },
-  'bathroom-after': {
-    base: '/images/optimised/bathroom-after',
-    width: 1400,
-    height: 1045,
-    placeholderColor: '#98a8b8',
-  },
-  'bathroom-before': {
-    base: '/images/optimised/bathroom-before',
-    width: 1400,
-    height: 1045,
-    placeholderColor: '#d8e8e8',
-  },
   'damp-stain': {
     base: '/images/optimised/damp-stain',
     width: 1200,

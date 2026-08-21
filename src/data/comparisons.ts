@@ -68,11 +68,14 @@ export const comparisons: Comparison[] = [
 ];
 
 /**
- * bathroom-before / bathroom-after are NOT included, and must not be added.
+ * A third pair (a dated bathroom before, a refitted bathroom after) was
+ * supplied and REJECTED. Its files have been deleted from the repo.
  *
- * They are not a matched pair. The "before" is a square bathroom with a
- * pedestal basin; the "after" is a narrow corridor WC with different tiling,
- * a different layout and a different window position. The "after" is also a
+ * Do not re-add that pair, or any pair like it.
+ *
+ * It was not a matched pair. The "before" was a square bathroom with a
+ * pedestal basin; the "after" was a narrow corridor WC with different tiling,
+ * a different layout and a different window position. The "after" was also a
  * two-up composite with a visible vertical seam down the middle, which in a
  * compare slider would reveal half of one photograph and half of another.
  *
