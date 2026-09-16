@@ -18,7 +18,7 @@ import { cn } from '@/lib/utils';
 /** Intrinsic size of public/brand/logo-client.png. Update if the source changes. */
 const LOGO = {
   src: '/brand/logo-client.png',
-  width: 240,
+  width: 267,
   height: 80,
 };
 
@@ -30,7 +30,10 @@ export function ClientLogo({ className }: { className?: string }) {
       width={LOGO.width}
       height={LOGO.height}
       priority
-      className={cn('h-9 w-auto md:h-10', className)}
+      // Default sizing lives in the caller's className, not here, so a
+      // caller can render it larger (the footer does) without fighting a
+      // baked-in md: breakpoint.
+      className={cn('w-auto', className)}
     />
   );
 }

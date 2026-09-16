@@ -274,7 +274,9 @@ local-SEO ranking signal and every Hull competitor has a Facebook presence.
 The client supplied his own logo: an orange droplet and ripple mark with a
 white "Fluid" wordmark and an orange "PLUMBING SOLUTIONS" sub-line.
 
-**Decision: use it as supplied.** It is his brand and his call.
+**Decision: use it as supplied.** It is his brand and his call. In practice
+it works better than expected: the orange sits close enough in hue to the
+amber emergency button that the header reads as deliberate.
 
 Three things were raised with him and accepted:
 
@@ -284,10 +286,14 @@ Three things were raised with him and accepted:
    engineering firm, not a man in a van". An orange logo on that palette
    will read as belonging to a different brand.
 
-2. **The wordmark has render artefacts.** The white "Fluid" lettering has
-   black speckles and holes punched through it, most likely from a poor
-   background removal. These will be visible in the header, which renders
-   the logo at 40px tall on desktop and 36px on mobile.
+2. **The wordmark has render artefacts, but they do not show.** The white
+   "Fluid" lettering has black speckles and holes punched through it at full
+   size, most likely from a poor background removal. Rendered at the header's
+   actual 36px and 40px they disappear entirely and the wordmark reads clean.
+   Checked before shipping; no action needed.
+
+   "PLUMBING SOLUTIONS" is not legible at header size, which is why the
+   footer renders the lockup at 48px where it is readable.
 
 3. **It is raster, not vector.** A 2172x724 PNG works on the site but cannot
    be used for van livery, signage or print without looking soft. The

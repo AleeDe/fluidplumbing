@@ -4,7 +4,7 @@ import { site } from '@/data/site';
 import { services } from '@/data/services';
 import { areas } from '@/data/areas';
 import { Container } from '@/components/ui/Container';
-import { Logo } from '@/components/ui/Logo';
+import { ClientLogo } from '@/components/ui/ClientLogo';
 import { Grain } from '@/components/ui/Grain';
 
 export function Footer() {
@@ -17,7 +17,7 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* NAP */}
           <div>
-            <Logo className="h-10 w-auto text-white" />
+            <ClientLogo className="h-12 w-auto" />
             <p className="fps-measure mt-5 text-sm leading-relaxed text-white/60">
               Plumbers based in Hull, working across the East Riding of Yorkshire.
               Emergency callouts, bathroom fitting, leak detection and repairs.

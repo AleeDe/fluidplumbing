@@ -10,7 +10,7 @@ import { site } from '@/data/site';
 import { services } from '@/data/services';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { Logo } from '@/components/ui/Logo';
+import { ClientLogo } from '@/components/ui/ClientLogo';
 import { cn } from '@/lib/utils';
 
 const links = [
@@ -59,7 +59,7 @@ export function Nav() {
             className="shrink-0 rounded-md"
             aria-label={`${site.name} home`}
           >
-            <Logo className="h-9 w-auto md:h-10" />
+            <ClientLogo className="h-9 w-auto md:h-10" />
           </Link>
 
           {/* Desktop */}
@@ -151,7 +151,7 @@ export function Nav() {
                 </Dialog.Description>
 
                 <div className="mb-8 flex items-center justify-between">
-                  <Logo className="h-9 w-auto" />
+                  <ClientLogo className="h-9 w-auto" />
                   <Dialog.Close asChild>
                     <button
                       className="inline-flex size-11 items-center justify-center rounded-full border border-white/15 text-white"
