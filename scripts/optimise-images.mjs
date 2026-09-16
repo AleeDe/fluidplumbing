@@ -21,6 +21,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, readdirSy
 import { join } from 'path';
 
 const SRC = 'assets-source';
+/** Real client job photos live in a subfolder, scanned as well as SRC. */
+const JOBS_SRC = 'assets-source/jobs';
 const OUT = 'public/images/optimised';
 const PLACEHOLDER_FILE = 'src/data/image-placeholders.ts';
 
@@ -56,6 +58,26 @@ const PLAN = {
   'hero-leak':           { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
   'hero-maintenance':    { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
   'hero-contact':        { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
+
+  // REAL client job photographs. Portrait phone shots, so the ladder is
+  // shorter than the landscape heroes. Both halves of a matched pair use
+  // identical widths so no quality seam shows in the slider.
+  'jobA-before-1':          { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobA-before-2':          { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobA-before-3':          { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobA-after-1':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobA-after-2':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobA-after-3':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobB-after-1':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobB-after-2':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobC-after-1':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobD-after-1':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobE-before-1':          { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobE-before-2':          { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobE-after-1':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobE-after-2':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'jobE-after-3':           { widths: [480, 800, 1200], budgetKB: 110 },
+  'detail-stopcock':     { widths: [480, 800], budgetKB: 70 },
   'hero-services':       { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
   'hero-areas':          { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
   'hero-gallery':        { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
@@ -117,7 +139,12 @@ async function main() {
   }
   mkdirSync(OUT, { recursive: true });
 
-  const sources = readdirSync(SRC).filter((f) => /\.(jpe?g|png)$/i.test(f));
+  const sources = [
+    ...readdirSync(SRC).filter((f) => /\.(jpe?g|png)$/i.test(f)).map((f) => ({ file: f, dir: SRC })),
+    ...(existsSync(JOBS_SRC)
+      ? readdirSync(JOBS_SRC).filter((f) => /\.(jpe?g|png)$/i.test(f)).map((f) => ({ file: f, dir: JOBS_SRC }))
+      : []),
+  ];
   if (sources.length === 0) {
     console.error(`No source images in ${SRC}`);
     process.exit(1);
@@ -136,10 +163,10 @@ async function main() {
   );
   console.log('-'.repeat(74));
 
-  for (const file of sources.sort()) {
+  for (const { file, dir } of sources.sort((a, b) => a.file.localeCompare(b.file))) {
     const name = file.replace(/\.(jpe?g|png)$/i, '');
     const plan = PLAN[name];
-    const srcPath = join(SRC, file);
+    const srcPath = join(dir, file);
     const srcSize = statSync(srcPath).size;
     srcTotal += srcSize;
 
