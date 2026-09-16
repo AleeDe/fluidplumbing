@@ -30,7 +30,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'How long does a full bathroom take to fit?',
-    a: 'Most complete bathrooms take between five and ten working days. The variables are the amount of tiling, whether anything is moving position, and how much remedial work appears once the old suite is out. Your quote will give a realistic timeframe rather than an optimistic one.',
+    a: 'Most complete bathrooms take between five and fifteen working days. The variables are the amount of tiling, whether anything is moving position, and how much remedial work appears once the old suite is out. Your quote will give a realistic timeframe rather than an optimistic one.',
   },
   {
     q: 'Do you supply the materials, or do I?',

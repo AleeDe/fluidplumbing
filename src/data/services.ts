@@ -90,7 +90,7 @@ export const services: Service[] = [
         heading: 'How a bathroom job runs',
         paragraphs: [
           'We visit, measure properly and talk through what you actually want, then give you a written fixed quote. No day rate that quietly grows.',
-          'Most full bathrooms take between five and ten working days depending on the amount of tiling and whether anything structural is moving. We tell you which days are noisy and which days you will be without a working toilet, so you can plan around it.',
+          'Most full bathrooms take between five and fifteen working days depending on the amount of tiling and whether anything structural is moving. We tell you which days are noisy and which days you will be without a working toilet, so you can plan around it.',
         ],
       },
       {
