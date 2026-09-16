@@ -27,8 +27,8 @@ const OUT = 'public/brand';
 /** Left fraction of the lockup that contains the droplet mark. */
 const MARK_CROP_FRACTION = 0.33;
 
-/** Site background, used behind the square icons. */
-const NAVY = '#04121F';
+/** Site background, used behind the square icons. #04121F. */
+const NAVY = { r: 4, g: 18, b: 31, alpha: 1 };
 
 if (!existsSync(SRC)) {
   console.error(`\nSource not found: ${SRC}`);
@@ -100,10 +100,9 @@ await sharp(await square(512, transparent)).toFile(`${OUT}/mark-client.png`);
 await sharp(await square(32, transparent)).toFile(`${OUT}/favicon-client.png`);
 
 // Apple touch icon must be opaque, so it goes on navy.
-const navyBg = { r: 4, g: 18, b: 31, alpha: 1 };
-await sharp(await square(180, navyBg)).toFile(`${OUT}/apple-touch-icon.png`);
-await sharp(await square(192, navyBg)).toFile(`${OUT}/icon-192.png`);
-await sharp(await square(512, navyBg)).toFile(`${OUT}/icon-512.png`);
+await sharp(await square(180, NAVY)).toFile(`${OUT}/apple-touch-icon.png`);
+await sharp(await square(192, NAVY)).toFile(`${OUT}/icon-192.png`);
+await sharp(await square(512, NAVY)).toFile(`${OUT}/icon-512.png`);
 
 console.log(`\nwrote to ${OUT}/:`);
 console.log('  logo-client.png / .webp   header lockup');

@@ -170,9 +170,23 @@ export const jobs: Job[] = [
   },
 ];
 
-/** Jobs with a genuine matched pair, used for the comparison sliders. */
+/**
+ * Jobs whose before and after shots genuinely align well enough for a
+ * compare slider: same room, similar camera position, same crop ratio.
+ *
+ * Job A qualifies. Job E does not: its "before" shots were taken at a
+ * different distance and one is a narrow landscape band, so a slider would
+ * reveal two differently framed rooms. Job E's before and after therefore
+ * appear side by side in the gallery instead, which is honest about what
+ * the photographs actually show.
+ */
+export const SLIDER_JOB_IDS = ['job-a'] as const;
+
 export const jobsWithPairs = jobs.filter(
-  (j) => j.before.length > 0 && j.after.length > 0,
+  (j) =>
+    (SLIDER_JOB_IDS as readonly string[]).includes(j.id) &&
+    j.before.length > 0 &&
+    j.after.length > 0,
 );
 
 /** Every photo across every job, for the gallery grid. */

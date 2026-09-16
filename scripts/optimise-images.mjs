@@ -17,7 +17,7 @@
  */
 
 import sharp from 'sharp';
-import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, readdirSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync, statSync, readdirSync } from 'fs';
 import { join } from 'path';
 
 const SRC = 'assets-source';
@@ -102,7 +102,7 @@ async function encodeAvif(src, width, quality) {
  * Find the highest quality at or below AVIF_Q_START whose LARGEST derivative
  * fits the budget. Returns { quality, buffers: Map<width, Buffer> }.
  */
-async function encodeWithinBudget(src, widths, budgetKB, name) {
+async function encodeWithinBudget(src, widths, budgetKB) {
   const maxW = Math.max(...widths);
   let quality = AVIF_Q_START;
 
@@ -174,7 +174,7 @@ async function main() {
     dimensions[name] = { width: maxW, height: Math.round(maxW * ratio) };
 
     const { quality, buffers, overBudget } = await encodeWithinBudget(
-      srcPath, plan.widths, plan.budgetKB, name,
+      srcPath, plan.widths, plan.budgetKB,
     );
 
     for (const [w, buf] of buffers) {
