@@ -83,14 +83,6 @@ const PLAN = {
   'hero-gallery':        { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
   'hero-about':          { widths: [640, 1024, 1440, 1920], budgetKB: 120 },
 
-  // Before/after comparison pairs. Both halves of a pair MUST use identical
-  // widths and quality, or the slider reveals a visible quality seam as the
-  // handle moves.
-  'leak-before':         { widths: [640, 1024, 1400], budgetKB: 90 },
-  'leak-after':          { widths: [640, 1024, 1400], budgetKB: 90 },
-  'radiator-before':     { widths: [640, 1024, 1400], budgetKB: 90 },
-  'radiator-after':      { widths: [640, 1024, 1400], budgetKB: 90 },
-
 };
 
 const kb = (bytes) => bytes / 1024;

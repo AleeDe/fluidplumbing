@@ -96,35 +96,11 @@ export const optimisedImages = {
     height: 1072,
     placeholderColor: '#080818',
   },
-  'leak-after': {
-    base: '/images/optimised/leak-after',
-    width: 1400,
-    height: 1045,
-    placeholderColor: '#081818',
-  },
-  'leak-before': {
-    base: '/images/optimised/leak-before',
-    width: 1400,
-    height: 1045,
-    placeholderColor: '#081818',
-  },
   'pressure-gauge': {
     base: '/images/optimised/pressure-gauge',
     width: 1200,
     height: 896,
     placeholderColor: '#081818',
-  },
-  'radiator-after': {
-    base: '/images/optimised/radiator-after',
-    width: 1400,
-    height: 1045,
-    placeholderColor: '#888888',
-  },
-  'radiator-before': {
-    base: '/images/optimised/radiator-before',
-    width: 1400,
-    height: 1045,
-    placeholderColor: '#888888',
   },
   'service-bathroom': {
     base: '/images/optimised/service-bathroom',

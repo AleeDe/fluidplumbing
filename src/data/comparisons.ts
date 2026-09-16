@@ -40,32 +40,19 @@ export type Comparison = {
   after: { name: OptimisedImageName; alt: string };
 };
 
-export const comparisons: Comparison[] = [
-  {
-    id: 'leak-joint',
-    label: 'A corroded joint replaced and the leak stopped',
-    before: {
-      name: 'leak-before',
-      alt: 'A corroded compression joint dripping onto the base of a sink cupboard',
-    },
-    after: {
-      name: 'leak-after',
-      alt: 'The same pipe run with a clean replacement compression joint and no water',
-    },
-  },
-  {
-    id: 'radiator-valve',
-    label: 'A seized valve swapped for a new thermostatic one',
-    before: {
-      name: 'radiator-before',
-      alt: 'A corroded radiator valve with limescale and staining on the floor beneath',
-    },
-    after: {
-      name: 'radiator-after',
-      alt: 'The same radiator with a new chrome thermostatic valve and clean pipework',
-    },
-  },
-];
+export const comparisons: Comparison[] = [];
+
+/**
+ * EMPTIED DELIBERATELY.
+ *
+ * The AI-generated leak and radiator pairs were removed once the client
+ * supplied real photographs of his own work. Illustrative before/after
+ * imagery is the most misleading category on a trade site, so it does not
+ * stay a moment longer than it has to.
+ *
+ * Real work now lives in src/data/jobs.ts and is rendered by the components
+ * below. Do NOT repopulate this array.
+ */
 
 /**
  * A third pair (a dated bathroom before, a refitted bathroom after) was

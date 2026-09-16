@@ -35,11 +35,6 @@ const WIDTHS: Record<OptimisedImageName, number[]> = {
   'hero-areas': [640, 1024, 1440, 1920],
   'hero-gallery': [640, 1024, 1440, 1920],
   'hero-about': [640, 1024, 1440, 1920],
-  // Comparison pairs — both halves must match exactly.
-  'leak-before': [640, 1024, 1400],
-  'leak-after': [640, 1024, 1400],
-  'radiator-before': [640, 1024, 1400],
-  'radiator-after': [640, 1024, 1400],
 };
 
 export function OptimisedImage({

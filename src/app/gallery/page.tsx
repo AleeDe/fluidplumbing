@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { workImages, beforeAfter } from '@/data/gallery';
 import { comparisons } from '@/data/comparisons';
-import { showcase, SHOWCASE_HEADING, SHOWCASE_EYEBROW } from '@/data/showcase';
+import { showcase } from '@/data/showcase';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { PageHero } from '@/components/ui/PageHero';
@@ -21,9 +21,10 @@ const hasRealWork = workImages.length > 0;
 const hasRealPairs = beforeAfter.length > 0;
 
 export const metadata: Metadata = {
-  title: 'Standard of Work',
-  description:
-    'Illustrative examples of the standard of plumbing work we deliver across Hull and the East Riding. Ask us for photographs of real jobs that match yours.',
+  title: hasRealWork ? 'Our Work' : 'See Work Like Yours',
+  description: hasRealWork
+    ? 'Photographs of bathrooms, repairs and leak work completed across Hull and the East Riding. Drag the sliders to see the difference.'
+    : 'Ask us for photographs of recent bathroom, leak and repair work across Hull and the East Riding. We send real job photos, not stock images.',
   alternates: { canonical: '/gallery/' },
 };
 
@@ -46,12 +47,12 @@ export default function GalleryPage() {
           { name: 'Standard of work', href: '/gallery/' },
         ]}
         pattern={<AreaHeaderPattern slug="gallery" image="hero-gallery" />}
-        eyebrow={SHOWCASE_EYEBROW}
-        title={hasRealWork ? 'Jobs we have finished.' : SHOWCASE_HEADING}
+        eyebrow="Our work"
+        title={hasRealWork ? 'Jobs we have finished.' : 'See work like yours.'}
         intro={
           hasRealWork
             ? 'Real work in real houses across Hull and the East Riding.'
-            : 'These images illustrate the standard we work to and the problems we deal with. They are not photographs of past jobs. Ask and we will send photos of real work that matches what you are planning.'
+            : 'We do not put stock photography on this page. Tell us what you are planning and we will send photographs of recent jobs that actually match it.'
         }
       />
 
