@@ -269,6 +269,39 @@ local-SEO ranking signal and every Hull competitor has a Facebook presence.
 
 ---
 
+## Client logo: orange, on a navy site
+
+The client supplied his own logo: an orange droplet and ripple mark with a
+white "Fluid" wordmark and an orange "PLUMBING SOLUTIONS" sub-line.
+
+**Decision: use it as supplied.** It is his brand and his call.
+
+Three things were raised with him and accepted:
+
+1. **It does not match the site palette.** The navy and aqua scheme was
+   chosen deliberately, per the original brief, because "every plumber in
+   Hull uses royal blue, white and red" and navy "reads as a precision
+   engineering firm, not a man in a van". An orange logo on that palette
+   will read as belonging to a different brand.
+
+2. **The wordmark has render artefacts.** The white "Fluid" lettering has
+   black speckles and holes punched through it, most likely from a poor
+   background removal. These will be visible in the header, which renders
+   the logo at 40px tall on desktop and 36px on mobile.
+
+3. **It is raster, not vector.** A 2172x724 PNG works on the site but cannot
+   be used for van livery, signage or print without looking soft. The
+   original SVG, AI or EPS is worth requesting from whoever designed it.
+
+The hand-authored SVG mark is **kept in the codebase**, not deleted. It is
+legibility-tested at 24, 48 and 320px and has mono-light and mono-dark
+variants, so it remains available if the supplied logo proves unusable at
+small sizes.
+
+Swap steps: [SWAP-IN-CLIENT-LOGO.md](SWAP-IN-CLIENT-LOGO.md).
+
+---
+
 # Technical decisions taken
 
 ### Next.js 16 → pinned back to 15
