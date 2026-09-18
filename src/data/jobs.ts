@@ -103,6 +103,10 @@ export const jobs: Job[] = [
         name: 'jobE-before-2',
         alt: 'The original cream tiled bathroom with a curved shower bath and dated vanity unit',
       },
+      {
+        name: 'detail-stopcock',
+        alt: 'A corroded brass stopcock on old copper pipe, of the kind that seizes and needs replacing',
+      },
     ],
     after: [
       {
@@ -195,10 +199,18 @@ export const allJobPhotos = jobs.flatMap((j) =>
    ...j.after.map((p) => ({ ...p, job: j, stage: 'after' as const }))],
 );
 
-/** Standalone detail shots that do not belong to a specific job. */
-export const detailPhotos: JobPhoto[] = [
-  {
-    name: 'detail-stopcock',
-    alt: 'A corroded brass stopcock on old copper pipe, of the kind that seizes and needs replacing',
-  },
-];
+/**
+ * Standalone detail shots that do not belong to a specific job.
+ *
+ * Empty at the client's request: the stopcock shot now sits among job E's
+ * "before" photos instead, so it reads as part of that strip-out rather
+ * than as a section of its own.
+ *
+ * Worth knowing if this is revisited: that photo is not actually from job
+ * E. It was supplied as a standalone detail. Presenting it under a job
+ * attributes it to work it may not belong to, and the gallery's
+ * ImageObject schema picks up that attribution too. Moving it back here
+ * restores the separate "The sort of thing we find" section, which renders
+ * automatically whenever this array is non-empty.
+ */
+export const detailPhotos: JobPhoto[] = [];

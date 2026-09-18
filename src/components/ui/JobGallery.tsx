@@ -132,14 +132,21 @@ export function JobGallery() {
           );
         })}
 
+        {/* Not finished work. Set apart with a rule and an eyebrow so this
+            repair detail does not read as the tail end of the bathroom
+            galleries above it. */}
         {detailPhotos.filter((p) => exists(p.name)).length > 0 && (
-          <article>
+          <article className="mt-6 border-t border-fps-navy-700 pt-12">
             <header className="mb-5 max-w-2xl">
-              <h3 className="font-sora text-xl font-semibold text-white">
+              <p className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-fps-aqua-400">
+                Maintenance and repairs
+              </p>
+              <h3 className="mt-3 font-sora text-xl font-semibold text-white">
                 The sort of thing we find
               </h3>
               <p className="mt-2 text-white/65">
-                Details worth knowing about before they become an emergency.
+                Not a finished bathroom. These are faults we come across on call outs,
+                worth knowing about before they become an emergency.
               </p>
             </header>
             <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
